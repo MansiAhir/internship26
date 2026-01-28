@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <h1>Team Members Details</h1>
+
+        <table border="1" cellpadding="15" cellspacing="0">
+            <tr>
+                <th>Team Name</th>
+                <td>{{ teamname }}</td>
+            </tr>
+
+            <tr>
+                <th>Captain Name</th>
+                <td>{{ capname }}</td>
+            </tr>
+
+            <tr>
+                <th>Players</th>
+                <td>
+                    {% for i in playerlist %}
+                    {{ i }},
+                    {% endfor %}
+                </td>
+            </tr>
+
+            <tr>
+                <th>Trophies</th>
+                <td>
+                    {% for i in trophy %}
+                    {{ i }},
+                    {% endfor %}
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+
+</html>
