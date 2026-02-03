@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 #from views import test
+from django.urls import include
 
 #localhost:8000/test/
 
@@ -32,5 +33,9 @@ urlpatterns = [
     path("recap/",views.recap),
     path("recipe/",views.recipe),
     path("team/",views.teams),
-    path("",views.home)
+    path("",views.home),
+
+    #app level url config
+    path("student/",include("student.urls")),
+    
 ]
