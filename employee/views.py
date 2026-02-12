@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .models import Employee
 from .forms import EmployeeForm, CourseForm, EventForm, BookForm
 # Create your views here.
@@ -74,7 +74,6 @@ def employeeFilter(request):
     print("query 17",employee17) 
     return render(request, 'employee/employeeFilter.html')
 
-
 def createEmployee(request):
     Employee.objects.create(name="ajay",age=23, salary=23000,post="HR", join_date= "2026-01-01")
     return HttpResponse("EMPLOYEE CREATED")
@@ -99,7 +98,6 @@ def createCourse(request):
         form = CourseForm()
         return render(request,"employee/createCourse.html", {"form":form})
 
-
 def createEvent(request):
     if request.method == "POST":
         form = EventForm(request.POST)
@@ -117,3 +115,33 @@ def createBook(request):
     else:
         form = BookForm()
         return render(request,"employee/createBook.html", {"form":form})    
+
+def deleteEmployee(request,id):
+    #delete from employees where id = 1
+    # print("EMPLOYEE DELETED...")
+    # return HttpResponse("EMPLOYEE Deleted")
+    #delete from employees where id = 1
+    print("id from url = ",id)
+    Employee.objects.filter(id=id).delete()
+    #return HttpResponse("EMPLOYEE DELETED...")
+    #employee list redirecr
+    return redirect("employeeList") #url --> name -->
+
+def filterEmployee(request):
+    print("filter employee called...")
+    employees = Employee.objects.filter(age__gte=25).values()
+    print("filter employees = ",employees)
+    #return redirect("employeeList")
+    return render(request,"employee/employeeList.html",{"employees":employees})
+
+def sortEmployees(request, id):
+
+    if id == 1:
+        employees = Employee.objects.order_by("age")
+    elif id == 2:
+        employees = Employee.objects.order_by("-age")
+    else:
+        employees = Employee.objects.all()
+
+    return render(request, "employee/employeeList.html", {"employees": employees})
+

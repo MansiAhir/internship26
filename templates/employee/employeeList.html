@@ -1,51 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
+<h1>EMPLOYEE LIST</h1>
+<a href="{% url 'createEmployeeWithForm' %}">Create Employee</a><br>
+<a href="{% url 'filterEmployee' %}">Filter</a><br>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-
-    <h1>EMPLOYEE LIST</h1>
+<a href="{% url 'sortEmployees' 1 %}">Sort Asc</a><br>
+<a href="{% url 'sortEmployees' 2 %}">Sort Dsc</a>
 
 
-    {% for emp in employees %}
-    {{emp.id}}
-    {{emp.name}}
-    {{emp.age}}
-    {{emp.salary}}
-    {{emp.join_date}}
-    {{emp.post}}
-    {% endfor %}
+<!-- {% for emp in employees %}
+{{emp.id}}
+{{emp.name}}
+{{emp.age}}
+{{emp.salary}}
+{{emp.join_date}}
+{{emp.post}}
+{% endfor %} -->
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Salary</th>
-                <th>Join Date</th>
-                <th>Post</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for emp in employees %}
-            <tr>
-                <td>{{emp.id}}</td>
-                <td>{{emp.name}}</td>
-                <td>{{emp.age}}</td>
-                <td>{{emp.salary}}</td>
-                <td>{{emp.join_date}}</td>
-                <td>{{emp.post}}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-</body>
-
-</html>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Join Date</th>
+            <th>Post</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for emp in employees %}
+        <tr>
+            <td>{{emp.id}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.salary}}</td>
+            <td>{{emp.join_date}}</td>
+            <td>{{emp.post}}</td>
+            <td>
+                <a href="{% url 'deleteEmployee' emp.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
