@@ -11,7 +11,7 @@ urlpatterns = [
     path('createBook/',views.createBook),
     path('deleteEmployee/<int:id>',views.deleteEmployee,name="deleteEmployee"),
     path('filterEmployee/',views.filterEmployee,name="filterEmployee"),
-   path('sortEmployees/<int:id>', views.sortEmployees, name='sortEmployees'),
-
+    path('sortEmployees/<int:id>', views.sortEmployees, name='sortEmployees'),
+    path('updateEmployee/<int:id>', views.updateEmployee, name='updateEmployee'),
 
 ]
