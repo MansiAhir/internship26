@@ -1,7 +1,35 @@
-<h1>CREATE SERVICES FORM</h1>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="form-container">
+
+    <h1>Create Service</h1>
+
+    <a href="{% url 'servicesList' %}" class="back-btn">
+        ← Back to Services List
+    </a>
+
+    <form method="POST" class="service-form">
+        {% csrf_token %}
+
+        <div class="form-fields">
+            {{ form.as_p }}
+        </div>
+
+        <button type="submit" class="submit-btn">
+            Submit
+        </button>
+
+    </form>
+
+</div>
+
+
+
+{% comment %} <h1>CREATE SERVICES FORM</h1>
 <a href= "{% url 'servicesList' %}">SERVICES LIST</a>
 <form method="POST">
     {% csrf_token %}
     {{form}}
     <input type="submit" value="Submit">
-</form>
+</form> {% endcomment %}

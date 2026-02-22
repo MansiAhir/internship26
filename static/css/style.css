@@ -1,78 +1,549 @@
+/* ===== Global Reset ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* ===== Navbar ===== */
 .navbar {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    padding: 15px 30px;
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo a {
     text-decoration: none;
     color: #fff;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 22px;
+    font-weight: 600;
 }
 
 .nav-links {
     display: flex;
-    gap: 20px;
+    gap: 25px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: #fff;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
+.nav-links a:hover {
+    color: #ffd369;
+}
+
+/* ===== Content Card ===== */
 .content {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-    flex-direction: column;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #fff;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
+/* ===== Table Styling ===== */
 .content table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-}
-
-.content table th,
-.content table td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .content table th {
-    background-color: #f2f2f2;
+    background-color: #2a5298;
+    color: #fff;
+    padding: 12px;
+    text-align: left;
+    font-weight: 500;
 }
 
+.content table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.content table tr:hover {
+    background-color: #f1f5ff;
+    transition: 0.2s ease;
+}
+
+/* ===== Buttons ===== */
+a {
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+a[href*="delete"] {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+a[href*="delete"]:hover {
+    background-color: #cc0000;
+}
+
+a[href*="update"] {
+    background-color: #28a745;
+    color: white;
+}
+
+a[href*="update"]:hover {
+    background-color: #1e7e34;
+}
+
+/* ===== Footer ===== */
 .footer {
-    background-color: #333;
+    background: #1e3c72;
     color: #fff;
-    padding: 10px;
+    padding: 15px;
     text-align: center;
-    justify-content: center;
-    align-items: center;
+    margin-top: 40px;
+}
+
+/* ===== Services Grid ===== */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+/* ===== Service Card ===== */
+.service-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+    transition: 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Image ===== */
+.card-image {
+    width: 100%;
+    height: 180px;
+    background-color: #eee;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== Card Content ===== */
+.card-content {
+    padding: 20px;
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.service-category {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #2a5298;
+    font-weight: 600;
+}
+
+.service-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #222;
+}
+
+
+/* ===== Page Title ===== */
+.page-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* ===== Button Container ===== */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+/* ===== Common Button Style ===== */
+.btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    transition: 0.3s ease;
+}
+
+/* Button Variations */
+.primary {
+    background-color: #2a5298;
+}
+
+.primary:hover {
+    background-color: #1e3c72;
+}
+
+.warning {
+    background-color: #ff9800;
+}
+
+.warning:hover {
+    background-color: #e68900;
+}
+
+.info {
+    background-color: #17a2b8;
+}
+
+.info:hover {
+    background-color: #117a8b;
+}
+
+
+
+
+/* Center everything */
+form {
+    width: 400px;
+    margin: 30px auto;
+}
+
+/* Style all Django inputs automatically */
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0 15px 0;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Submit button */
+form input[type="submit"] {
+    background-color: #2a5298;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #1e3c72;
+}
+
+/* Space for labels */
+form label {
+    font-weight: 500;
+}
+
+
+.form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.back-link {
+    display: inline-block;
+    text-decoration: none;
+    padding: 6px 12px;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    background-color: #555;
+}
+
+
+
+/* css for services-list */
+
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #eef2f3, #dfe9f3);
+    padding: 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #222;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+/* Create Button */
+a[href*="createServicesForm"] {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 18px;
+    background: #111;
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+a[href*="createServicesForm"]:hover {
+    background: #444;
+    transform: translateY(-2px);
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Header */
+thead {
+    background: #111;
+    color: white;
+}
+
+th {
+    padding: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Table Body */
+td {
+    padding: 14px;
+    text-align: center;
+    color: #333;
+}
+
+tbody tr {
+    transition: 0.2s ease;
+}
+
+tbody tr:hover {
+    background-color: #f5f7fa;
+}
+
+/* Action Buttons */
+a[href*="deleteServices"],
+a[href*="updateServices"] {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s ease;
+}
+
+/* Delete */
+a[href*="deleteServices"] {
+    background: #ff4d4d;
+}
+
+a[href*="deleteServices"]:hover {
+    background: #cc0000;
+}
+
+/* Update */
+a[href*="updateServices"] {
+    background: #4caf50;
+}
+
+a[href*="updateServices"]:hover {
+    background: #2e7d32;
+}
+
+
+/* css services form */
+
+
+/* Form Page Styling */
+
+.form-container {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+}
+
+.back-btn:hover {
+    text-decoration: underline;
+}
+
+.service-form input,
+.service-form textarea,
+.service-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background: #111;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: #444;
+}
+
+
+
+
+
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: #111;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-btn:hover {
+    background: #333;
+}
+
+
+
+
+/* css create employee form */
+
+/* Center Container */
+.form-container {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Header */
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-header h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+/* Back Button */
+.back-btn {
+    padding: 6px 14px;
+    background: #6c757d;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #495057;
+}
+
+/* Form Fields */
+.employee-form input,
+.employee-form textarea,
+.employee-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background: #111;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: #333;
 }

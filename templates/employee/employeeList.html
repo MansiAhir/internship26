@@ -2,11 +2,19 @@
 {% block content %}
 
 <h1>EMPLOYEE LIST</h1>
-<a href="{% url 'createEmployeeWithForm' %}">Create Employee</a><br>
+{% comment %} <a href="{% url 'createEmployeeWithForm' %}">Create Employee</a><br>
 <a href="{% url 'filterEmployee' %}">FILTER</a><br>
 
 <a href="{% url 'sortEmployees' 1 %}">Sort Asc</a><br>
-<a href="{% url 'sortEmployees' 2 %}">Sort Dsc</a>
+<a href="{% url 'sortEmployees' 2 %}">Sort Dsc</a> {% endcomment %}
+
+
+<div class="action-buttons">
+    <a href="{% url 'createEmployeeWithForm' %}" class="btn primary">+ Create Employee</a>
+    <a href="{% url 'filterEmployee' %}" class="btn warning">Filter</a>
+    <a href="{% url 'sortEmployees' 1 %}" class="btn info">Sort Asc</a>
+    <a href="{% url 'sortEmployees' 2 %}" class="btn info">Sort Dsc</a>
+</div>
 
 
 <!-- {% for emp in employees %}
@@ -28,6 +36,7 @@
             <th>Join Date</th>
             <th>Post</th>
             <th>Actions</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>

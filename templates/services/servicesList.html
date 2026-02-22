@@ -1,3 +1,6 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 <h1>SERVICES LIST</h1>
 <a href="{% url 'createServicesForm' %}">CREATE SERVICES HERE...</a><br>
 
@@ -10,6 +13,7 @@
             <th>PRICE</th>
             <th>CREATE DATE</th>
             <th>Actions</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>

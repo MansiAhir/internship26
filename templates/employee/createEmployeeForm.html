@@ -1,8 +1,43 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="form-container">
+
+    <div class="form-header">
+        <h1>Create Employee</h1>
+        <a href="{% url 'employeeList' %}" class="back-btn">
+            ← Employee List
+        </a>
+    </div>
+
+    <form method="POST" class="employee-form">
+        {% csrf_token %}
+
+        <div class="form-fields">
+            {{ form.as_p }}
+        </div>
+
+        <button type="submit" class="submit-btn">
+            Submit
+        </button>
+    </form>
+
+</div>
+
+{% endblock content %}
+
+
+
+{% comment %} {% extends 'base.html' %} 
+{% block content %}
+
 <h1>CRETAE EMPLOYEEFORM</h1>
+
 <a href="{% url 'employeeList' %}">Employee List</a>
+
 <form method="POST">
   {% csrf_token %} {{form}}
   <input type="submit" value="Submit" />
 </form>
-{% endblock content %}
+
+{% endblock content %} {% endcomment %}
